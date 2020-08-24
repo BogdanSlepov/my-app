@@ -60,7 +60,7 @@ class Game extends React.Component {
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
-        const squares = this.state.squares.slice();
+        const squares = current.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
@@ -103,7 +103,7 @@ class Game extends React.Component {
 
         let status;
         if (winner) {
-            status = 'Won' + winner;
+            status = 'Won ' + winner;
         } else {
             status = 'Next move ' + (this.state.xIsNext ? 'X' : 'O');
         }
